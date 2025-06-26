@@ -2206,7 +2206,7 @@ ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:bShareMater
 ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:bSkipEditorContent:0=false
 ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:bSkipMovies:0=False
 ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:BuildConfiguration:0=PPBC_Development
-ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:bUseIoStore:0=True
+ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:bUseIoStore:0=False
 ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:bUseZenStore:0=False
 ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:CulturesToStage:0=en
 ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:DirectoriesToAlwaysCook:0=(Path="/NNEDenoiser")
@@ -2264,7 +2264,7 @@ ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:PackageComp
 ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:PackageCompressionMethod:0=Kraken
 ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:PackageCompressionMinBytesSaved:0=1024
 ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:PackageCompressionMinPercentSaved:0=5
-ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:UsePakFile:0=True
+ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:UsePakFile:0=False
 ConfigSystem.<Editor>.Game:/Script/UnrealEd.ProjectPackagingSettings:WriteBackMetadataToAssetRegistry:0=Disabled
 ConfigSystem.<Editor>.Game:Internationalization:LocalizationPaths:0=%GAMEDIR%Content/Localization/Game
 ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:0=r.Shadow.Virtual.Enable 1
