@@ -85,6 +85,7 @@ ConfigSystem.Android.Engine:/Script/Engine.GarbageCollectionSettings:gc.TimeBetw
 ConfigSystem.Android.Engine:/Script/Engine.GarbageCollectionSettings:gc.VerifyUObjectsAreNotFGCObjects:0=False
 ConfigSystem.Android.Engine:/Script/Engine.NetworkSettings:NetworkEmulationProfiles:0=(ProfileName="Average",ToolTip="Simulates average internet conditions")
 ConfigSystem.Android.Engine:/Script/Engine.NetworkSettings:NetworkEmulationProfiles:1=(ProfileName="Bad",ToolTip="Simulates laggy internet conditions")
+ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:# r.EarlyZPass:0=0 # Remove Depth Prepass, this has considerable impact on overdraw so be careful, measure for your scene.
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:# r.Substrate:0=false # Substrate has high overhead compared to legacy material system, no benefit here.
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:# r.SupportPointLightWholeSceneShadows:0=False # Reduce material permutations, less PSOs & compile time.
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:# r.SupportSkyAtmosphere:0=False # Reduce material permutations, less PSOs & compile time.
@@ -95,7 +96,7 @@ ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:GreenChromaticityCoo
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:MaxSkinBones:0=(Default=65536,PerPlatform=(("Mobile", 256)))
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.AllowOcclusionQueries:0=False # Disable Occlusion Culling - it's expensive, measure for your scene, some complex scenes will benefit.
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.AllowStaticLighting:0=False # Disables lightmass related rendering code.
-ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.AntiAliasingMethod:0=3 # Oldschool FXAA, no TAA or TSR because it's expensive, you can go with MSAA if you want nice AA.
+ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.AntiAliasingMethod:0=0
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.CustomDepth:0=3 # You can disable this to save VRAM and perf writing stencil buffers.
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.CustomDepthTemporalAAJitter:0=False
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.DBuffer:0=False # Remove Decal Buffer for prepass, makes decals more expensive but removes overall overhead.
@@ -113,7 +114,6 @@ ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.DefaultFeature.Mot
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.Deferred.UsesLightFunctionAtlas:0=True
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.DistanceFields:0=1
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.DynamicGlobalIlluminationMethod:0=0
-ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.EarlyZPass:0=0 # Remove Depth Prepass, this has considerable impact on overdraw so be careful, measure for your scene.
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.ForwardShading:0=True # Very important - Forward shading has considerable perf benefits, but it can vary per scene \ game, so profile it.
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.GenerateMeshDistanceFields:0=True # We still want distance field rendering as it's typical to use.
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.GPUCrashDebugging:0=false
@@ -130,7 +130,7 @@ ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.Mobile.AntiAliasin
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableMovableLightCSMShaderCulling:0=False
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableNoPrecomputedLightingCSMShader:0=1
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableStaticAndCSMShadowReceivers:0=False # Reduce material permutations, less PSOs & compile time.
-ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.Mobile.Forward.EnableLocalLights:0=0 # We don't need local lights, more perf plz.
+ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.Mobile.Forward.EnableLocalLights:0=1 # We don't need local lights, more perf plz.
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.Mobile.SupportsGen4TAA:0=False # We will not be using TAA
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.MSAACount:0=1
 ConfigSystem.Android.Engine:/Script/Engine.RendererSettings:r.Nanite:0=0 # Nanite is unavailable on older GPU feature sets or slow without fast compute.
@@ -423,6 +423,7 @@ ConfigSystem.IOS.Engine:/Script/Engine.GarbageCollectionSettings:gc.TimeBetweenP
 ConfigSystem.IOS.Engine:/Script/Engine.GarbageCollectionSettings:gc.VerifyUObjectsAreNotFGCObjects:0=False
 ConfigSystem.IOS.Engine:/Script/Engine.NetworkSettings:NetworkEmulationProfiles:0=(ProfileName="Average",ToolTip="Simulates average internet conditions")
 ConfigSystem.IOS.Engine:/Script/Engine.NetworkSettings:NetworkEmulationProfiles:1=(ProfileName="Bad",ToolTip="Simulates laggy internet conditions")
+ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:# r.EarlyZPass:0=0 # Remove Depth Prepass, this has considerable impact on overdraw so be careful, measure for your scene.
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:# r.Substrate:0=false # Substrate has high overhead compared to legacy material system, no benefit here.
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:# r.SupportPointLightWholeSceneShadows:0=False # Reduce material permutations, less PSOs & compile time.
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:# r.SupportSkyAtmosphere:0=False # Reduce material permutations, less PSOs & compile time.
@@ -433,7 +434,7 @@ ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:GreenChromaticityCoordin
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:MaxSkinBones:0=(Default=65536,PerPlatform=(("Mobile", 256)))
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.AllowOcclusionQueries:0=False # Disable Occlusion Culling - it's expensive, measure for your scene, some complex scenes will benefit.
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.AllowStaticLighting:0=False # Disables lightmass related rendering code.
-ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.AntiAliasingMethod:0=3 # Oldschool FXAA, no TAA or TSR because it's expensive, you can go with MSAA if you want nice AA.
+ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.AntiAliasingMethod:0=0
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.CustomDepth:0=3 # You can disable this to save VRAM and perf writing stencil buffers.
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.CustomDepthTemporalAAJitter:0=False
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.DBuffer:0=False # Remove Decal Buffer for prepass, makes decals more expensive but removes overall overhead.
@@ -451,7 +452,6 @@ ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.DefaultFeature.MotionB
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.Deferred.UsesLightFunctionAtlas:0=True
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.DistanceFields:0=0
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.DynamicGlobalIlluminationMethod:0=0
-ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.EarlyZPass:0=0 # Remove Depth Prepass, this has considerable impact on overdraw so be careful, measure for your scene.
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.ForwardShading:0=True # Very important - Forward shading has considerable perf benefits, but it can vary per scene \ game, so profile it.
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.GenerateMeshDistanceFields:0=True # We still want distance field rendering as it's typical to use.
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.GPUCrashDebugging:0=false
@@ -468,7 +468,7 @@ ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.Mobile.AntiAliasing:0=
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableMovableLightCSMShaderCulling:0=False
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableNoPrecomputedLightingCSMShader:0=1
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableStaticAndCSMShadowReceivers:0=False # Reduce material permutations, less PSOs & compile time.
-ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.Mobile.Forward.EnableLocalLights:0=0 # We don't need local lights, more perf plz.
+ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.Mobile.Forward.EnableLocalLights:0=1 # We don't need local lights, more perf plz.
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.Mobile.SupportsGen4TAA:0=False # We will not be using TAA
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.MSAACount:0=1
 ConfigSystem.IOS.Engine:/Script/Engine.RendererSettings:r.Nanite:0=0 # Nanite is unavailable on older GPU feature sets or slow without fast compute.
@@ -775,6 +775,7 @@ ConfigSystem.Mac.Engine:/Script/Engine.GarbageCollectionSettings:gc.TimeBetweenP
 ConfigSystem.Mac.Engine:/Script/Engine.GarbageCollectionSettings:gc.VerifyUObjectsAreNotFGCObjects:0=False
 ConfigSystem.Mac.Engine:/Script/Engine.NetworkSettings:NetworkEmulationProfiles:0=(ProfileName="Average",ToolTip="Simulates average internet conditions")
 ConfigSystem.Mac.Engine:/Script/Engine.NetworkSettings:NetworkEmulationProfiles:1=(ProfileName="Bad",ToolTip="Simulates laggy internet conditions")
+ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:# r.EarlyZPass:0=0 # Remove Depth Prepass, this has considerable impact on overdraw so be careful, measure for your scene.
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:# r.Substrate:0=false # Substrate has high overhead compared to legacy material system, no benefit here.
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:# r.SupportPointLightWholeSceneShadows:0=False # Reduce material permutations, less PSOs & compile time.
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:# r.SupportSkyAtmosphere:0=False # Reduce material permutations, less PSOs & compile time.
@@ -785,7 +786,7 @@ ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:GreenChromaticityCoordin
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:MaxSkinBones:0=(Default=65536,PerPlatform=(("Mobile", 256)))
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.AllowOcclusionQueries:0=False # Disable Occlusion Culling - it's expensive, measure for your scene, some complex scenes will benefit.
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.AllowStaticLighting:0=False # Disables lightmass related rendering code.
-ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.AntiAliasingMethod:0=3 # Oldschool FXAA, no TAA or TSR because it's expensive, you can go with MSAA if you want nice AA.
+ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.AntiAliasingMethod:0=0
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.CustomDepth:0=3 # You can disable this to save VRAM and perf writing stencil buffers.
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.CustomDepthTemporalAAJitter:0=False
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.DBuffer:0=False # Remove Decal Buffer for prepass, makes decals more expensive but removes overall overhead.
@@ -802,7 +803,6 @@ ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.DefaultFeature.LocalEx
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.DefaultFeature.MotionBlur:0=False # Motion blur adds cost from velocity and post process, and nobody likes it anyway.
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.Deferred.UsesLightFunctionAtlas:0=True
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.DynamicGlobalIlluminationMethod:0=0
-ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.EarlyZPass:0=0 # Remove Depth Prepass, this has considerable impact on overdraw so be careful, measure for your scene.
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.ForwardShading:0=True # Very important - Forward shading has considerable perf benefits, but it can vary per scene \ game, so profile it.
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.GenerateMeshDistanceFields:0=True # We still want distance field rendering as it's typical to use.
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.GPUCrashDebugging:0=false
@@ -819,7 +819,7 @@ ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.Mobile.AntiAliasing:0=
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableMovableLightCSMShaderCulling:0=False
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableNoPrecomputedLightingCSMShader:0=1
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableStaticAndCSMShadowReceivers:0=False # Reduce material permutations, less PSOs & compile time.
-ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.Mobile.Forward.EnableLocalLights:0=0 # We don't need local lights, more perf plz.
+ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.Mobile.Forward.EnableLocalLights:0=1 # We don't need local lights, more perf plz.
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.Mobile.SupportsGen4TAA:0=False # We will not be using TAA
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.MSAACount:0=1
 ConfigSystem.Mac.Engine:/Script/Engine.RendererSettings:r.Nanite:0=0 # Nanite is unavailable on older GPU feature sets or slow without fast compute.
@@ -1475,6 +1475,7 @@ ConfigSystem.<Editor>.Engine:/Script/Engine.PhysicsSettings:DefaultGravityZ:0=-9
 ConfigSystem.<Editor>.Engine:/Script/Engine.Player:ConfiguredInternetSpeed:0=100000
 ConfigSystem.<Editor>.Engine:/Script/Engine.Player:ConfiguredLanSpeed:0=100000
 ConfigSystem.<Editor>.Engine:/Script/Engine.PlayerCameraManager:ServerUpdateCameraTimeout:0=2.0
+ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:# r.EarlyZPass:0=0 # Remove Depth Prepass, this has considerable impact on overdraw so be careful, measure for your scene.
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:# r.Substrate:0=false # Substrate has high overhead compared to legacy material system, no benefit here.
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:# r.SupportPointLightWholeSceneShadows:0=False # Reduce material permutations, less PSOs & compile time.
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:# r.SupportSkyAtmosphere:0=False # Reduce material permutations, less PSOs & compile time.
@@ -1485,7 +1486,7 @@ ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:GreenChromaticityCo
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:MaxSkinBones:0=(Default=65536,PerPlatform=(("Mobile", 256)))
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.AllowOcclusionQueries:0=False # Disable Occlusion Culling - it's expensive, measure for your scene, some complex scenes will benefit.
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.AllowStaticLighting:0=False # Disables lightmass related rendering code.
-ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.AntiAliasingMethod:0=3 # Oldschool FXAA, no TAA or TSR because it's expensive, you can go with MSAA if you want nice AA.
+ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.AntiAliasingMethod:0=0
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.CustomDepth:0=3 # You can disable this to save VRAM and perf writing stencil buffers.
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.CustomDepthTemporalAAJitter:0=False
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.DBuffer:0=False # Remove Decal Buffer for prepass, makes decals more expensive but removes overall overhead.
@@ -1502,7 +1503,6 @@ ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.DefaultFeature.Lo
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.DefaultFeature.MotionBlur:0=False # Motion blur adds cost from velocity and post process, and nobody likes it anyway.
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.Deferred.UsesLightFunctionAtlas:0=True
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.DynamicGlobalIlluminationMethod:0=0
-ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.EarlyZPass:0=0 # Remove Depth Prepass, this has considerable impact on overdraw so be careful, measure for your scene.
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.ForwardShading:0=True # Very important - Forward shading has considerable perf benefits, but it can vary per scene \ game, so profile it.
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.GenerateMeshDistanceFields:0=True # We still want distance field rendering as it's typical to use.
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.GPUCrashDebugging:0=false
@@ -1519,7 +1519,7 @@ ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.Mobile.AntiAliasi
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableMovableLightCSMShaderCulling:0=False
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableNoPrecomputedLightingCSMShader:0=1
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableStaticAndCSMShadowReceivers:0=False # Reduce material permutations, less PSOs & compile time.
-ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.Mobile.Forward.EnableLocalLights:0=0 # We don't need local lights, more perf plz.
+ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.Mobile.Forward.EnableLocalLights:0=1 # We don't need local lights, more perf plz.
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.Mobile.SupportsGen4TAA:0=False # We will not be using TAA
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.MSAACount:0=1
 ConfigSystem.<Editor>.Engine:/Script/Engine.RendererSettings:r.Nanite:0=0 # Nanite is unavailable on older GPU feature sets or slow without fast compute.
@@ -2000,7 +2000,6 @@ ConfigSystem.<Editor>.Engine:DevOptions.Shaders:NumUnusedShaderCompilingThreads:
 ConfigSystem.<Editor>.Engine:DevOptions.Shaders:NumUnusedShaderCompilingThreadsDuringGame:0=4
 ConfigSystem.<Editor>.Engine:DevOptions.Shaders:ProcessGameThreadTargetTime:0=.01
 ConfigSystem.<Editor>.Engine:DevOptions.Shaders:ShaderCompilerCoreCountThreshold:0=12
-ConfigSystem.<Editor>.Engine:DevOptions.Shaders:WorkerProcessPriority:0=-1
 ConfigSystem.<Editor>.Engine:DevOptions.Shaders:WorkerTimeToLive:0=20
 ConfigSystem.<Editor>.Engine:Engine.ErrorHandling:bPromptForRemoteDebugging:0=false
 ConfigSystem.<Editor>.Engine:Engine.ErrorHandling:bPromptForRemoteDebugOnEnsure:0=false
@@ -2305,19 +2304,19 @@ ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:33=r.DynamicRes
 ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:34=r.DynamicRes.OperationMode 0
 ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:35=r.ScreenPercentage.MinResolution 800
 ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:36=r.ScreenPercentage.MinResolution 999
-ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:37=r.ScreenPercentage.MinResolution 480
-ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:38=r.ScreenPercentage.MinResolution 240
-ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:39=r.ScreenPercentage.Auto.PixelCountMultiplier 2
-ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:40=r.ScreenPercentage.Auto.PixelCountMultiplier 1
-ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:41=r.ScreenPercentage.Auto.PixelCountMultiplier 0.2
-ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:42=r.ScreenPercentage.Auto.PixelCountMultiplier 4
-ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:43=r.ScreenPercentage.Default 0
-ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:44=r.ScreenPercentage.Default 1
-ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:45=r.Lumen.ScreenProbeGather.ScreenTraces.ThicknessScaleWhenNoFallback
-ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:46=r.Upscale.Quality 1
-ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:47=r.Upscale.Quality 4
-ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:48=r.Upscale.Quality -1
-ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:49=r.Upscale.Quality 0
+ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:37=r.ScreenPercentage.MinResolution 240
+ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:38=r.ScreenPercentage.Auto.PixelCountMultiplier 2
+ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:39=r.ScreenPercentage.Auto.PixelCountMultiplier 1
+ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:40=r.ScreenPercentage.Auto.PixelCountMultiplier 0.2
+ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:41=r.ScreenPercentage.Auto.PixelCountMultiplier 4
+ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:42=r.ScreenPercentage.Default 0
+ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:43=r.ScreenPercentage.Default 1
+ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:44=r.Lumen.ScreenProbeGather.ScreenTraces.ThicknessScaleWhenNoFallback
+ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:45=r.Upscale.Quality 1
+ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:46=r.Upscale.Quality 4
+ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:47=r.Upscale.Quality -1
+ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:48=r.Upscale.Quality 0
+ConfigSystem.<Editor>.Input:/Script/Engine.Console:HistoryBuffer:49=r.ScreenPercentage.MinResolution 480
 ConfigSystem.<Editor>.Input:/Script/Engine.InputSettings:ActionMappings:0=(ActionName="Jump",bShift=False,bCtrl=False,bAlt=False,bCmd=False,Key=SpaceBar)
 ConfigSystem.<Editor>.Input:/Script/Engine.InputSettings:ActionMappings:1=(ActionName="Sprint",bShift=False,bCtrl=False,bAlt=False,bCmd=False,Key=LeftShift)
 ConfigSystem.<Editor>.Input:/Script/Engine.InputSettings:AxisConfig:0=(AxisKeyName="Mouse2D",AxisProperties=(DeadZone=0.000000,Sensitivity=0.070000,Exponent=1.000000,bInvert=False))
@@ -3659,6 +3658,7 @@ ConfigSystem.TVOS.Engine:/Script/Engine.GarbageCollectionSettings:gc.TimeBetween
 ConfigSystem.TVOS.Engine:/Script/Engine.GarbageCollectionSettings:gc.VerifyUObjectsAreNotFGCObjects:0=False
 ConfigSystem.TVOS.Engine:/Script/Engine.NetworkSettings:NetworkEmulationProfiles:0=(ProfileName="Average",ToolTip="Simulates average internet conditions")
 ConfigSystem.TVOS.Engine:/Script/Engine.NetworkSettings:NetworkEmulationProfiles:1=(ProfileName="Bad",ToolTip="Simulates laggy internet conditions")
+ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:# r.EarlyZPass:0=0 # Remove Depth Prepass, this has considerable impact on overdraw so be careful, measure for your scene.
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:# r.Substrate:0=false # Substrate has high overhead compared to legacy material system, no benefit here.
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:# r.SupportPointLightWholeSceneShadows:0=False # Reduce material permutations, less PSOs & compile time.
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:# r.SupportSkyAtmosphere:0=False # Reduce material permutations, less PSOs & compile time.
@@ -3669,7 +3669,7 @@ ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:GreenChromaticityCoordi
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:MaxSkinBones:0=(Default=65536,PerPlatform=(("Mobile", 256)))
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.AllowOcclusionQueries:0=False # Disable Occlusion Culling - it's expensive, measure for your scene, some complex scenes will benefit.
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.AllowStaticLighting:0=False # Disables lightmass related rendering code.
-ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.AntiAliasingMethod:0=3 # Oldschool FXAA, no TAA or TSR because it's expensive, you can go with MSAA if you want nice AA.
+ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.AntiAliasingMethod:0=0
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.CustomDepth:0=3 # You can disable this to save VRAM and perf writing stencil buffers.
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.CustomDepthTemporalAAJitter:0=False
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.DBuffer:0=False # Remove Decal Buffer for prepass, makes decals more expensive but removes overall overhead.
@@ -3687,7 +3687,6 @@ ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.DefaultFeature.Motion
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.Deferred.UsesLightFunctionAtlas:0=True
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.DistanceFields:0=0
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.DynamicGlobalIlluminationMethod:0=0
-ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.EarlyZPass:0=0 # Remove Depth Prepass, this has considerable impact on overdraw so be careful, measure for your scene.
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.ForwardShading:0=True # Very important - Forward shading has considerable perf benefits, but it can vary per scene \ game, so profile it.
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.GenerateMeshDistanceFields:0=True # We still want distance field rendering as it's typical to use.
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.GPUCrashDebugging:0=false
@@ -3704,7 +3703,7 @@ ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.Mobile.AntiAliasing:0
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableMovableLightCSMShaderCulling:0=False
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableNoPrecomputedLightingCSMShader:0=1
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableStaticAndCSMShadowReceivers:0=False # Reduce material permutations, less PSOs & compile time.
-ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.Mobile.Forward.EnableLocalLights:0=0 # We don't need local lights, more perf plz.
+ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.Mobile.Forward.EnableLocalLights:0=1 # We don't need local lights, more perf plz.
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.Mobile.SupportsGen4TAA:0=False # We will not be using TAA
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.MSAACount:0=1
 ConfigSystem.TVOS.Engine:/Script/Engine.RendererSettings:r.Nanite:0=0 # Nanite is unavailable on older GPU feature sets or slow without fast compute.
@@ -3965,6 +3964,7 @@ ConfigSystem.Windows.Engine:/Script/Engine.GarbageCollectionSettings:gc.TimeBetw
 ConfigSystem.Windows.Engine:/Script/Engine.GarbageCollectionSettings:gc.VerifyUObjectsAreNotFGCObjects:0=False
 ConfigSystem.Windows.Engine:/Script/Engine.NetworkSettings:NetworkEmulationProfiles:0=(ProfileName="Average",ToolTip="Simulates average internet conditions")
 ConfigSystem.Windows.Engine:/Script/Engine.NetworkSettings:NetworkEmulationProfiles:1=(ProfileName="Bad",ToolTip="Simulates laggy internet conditions")
+ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:# r.EarlyZPass:0=0 # Remove Depth Prepass, this has considerable impact on overdraw so be careful, measure for your scene.
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:# r.Substrate:0=false # Substrate has high overhead compared to legacy material system, no benefit here.
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:# r.SupportPointLightWholeSceneShadows:0=False # Reduce material permutations, less PSOs & compile time.
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:# r.SupportSkyAtmosphere:0=False # Reduce material permutations, less PSOs & compile time.
@@ -3975,7 +3975,7 @@ ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:GreenChromaticityCoo
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:MaxSkinBones:0=(Default=65536,PerPlatform=(("Mobile", 256)))
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.AllowOcclusionQueries:0=False # Disable Occlusion Culling - it's expensive, measure for your scene, some complex scenes will benefit.
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.AllowStaticLighting:0=False # Disables lightmass related rendering code.
-ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.AntiAliasingMethod:0=3 # Oldschool FXAA, no TAA or TSR because it's expensive, you can go with MSAA if you want nice AA.
+ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.AntiAliasingMethod:0=0
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.CustomDepth:0=3 # You can disable this to save VRAM and perf writing stencil buffers.
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.CustomDepthTemporalAAJitter:0=False
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.DBuffer:0=False # Remove Decal Buffer for prepass, makes decals more expensive but removes overall overhead.
@@ -3992,7 +3992,6 @@ ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.DefaultFeature.Loc
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.DefaultFeature.MotionBlur:0=False # Motion blur adds cost from velocity and post process, and nobody likes it anyway.
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.Deferred.UsesLightFunctionAtlas:0=True
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.DynamicGlobalIlluminationMethod:0=0
-ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.EarlyZPass:0=0 # Remove Depth Prepass, this has considerable impact on overdraw so be careful, measure for your scene.
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.ForwardShading:0=True # Very important - Forward shading has considerable perf benefits, but it can vary per scene \ game, so profile it.
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.GenerateMeshDistanceFields:0=True # We still want distance field rendering as it's typical to use.
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.GPUCrashDebugging:0=false
@@ -4009,7 +4008,7 @@ ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.Mobile.AntiAliasin
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableMovableLightCSMShaderCulling:0=False
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableNoPrecomputedLightingCSMShader:0=1
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.Mobile.EnableStaticAndCSMShadowReceivers:0=False # Reduce material permutations, less PSOs & compile time.
-ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.Mobile.Forward.EnableLocalLights:0=0 # We don't need local lights, more perf plz.
+ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.Mobile.Forward.EnableLocalLights:0=1 # We don't need local lights, more perf plz.
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.Mobile.SupportsGen4TAA:0=False # We will not be using TAA
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.MSAACount:0=1
 ConfigSystem.Windows.Engine:/Script/Engine.RendererSettings:r.Nanite:0=0 # Nanite is unavailable on older GPU feature sets or slow without fast compute.

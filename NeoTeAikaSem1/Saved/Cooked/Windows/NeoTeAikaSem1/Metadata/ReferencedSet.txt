@@ -331,7 +331,6 @@
 /game/firstpersonarms/character/textures/manny/t_manny_02_n
 /game/firstpersonarms/character/textures/manny/t_manny_02_tan
 /game/firstpersonarms/character/textures/shared/t_ue_logo_m
-/game/fpweapon/audio/firstpersontemplateweaponfire02
 /game/fpweapon/materials/basematerial
 /game/fpweapon/materials/firstpersonprojectilematerial
 /game/fpweapon/materials/m_fpgun
@@ -376,6 +375,9 @@
 /game/neogame/art/ui/xhair1
 /game/neogame/art/ui_border_rim
 /game/neogame/art/xhair
+/game/neogame/audio/gate_test_through
+/game/neogame/audio/pylon
+/game/neogame/audio/pylonatten
 /game/neogame/blueprints/bp_door
 /game/neogame/blueprints/bp_init
 /game/neogame/blueprints/placeholderpylon
