@@ -1,17 +1,12 @@
 # RIBBON
 
-<<<<<<< HEAD
-<br>
-TEST
-
-=======
 * Reach each tower
 
 # Variables
 
 |   Type|Var Name|Details|
 |   -|-|-  
-|   bool    |   devAlwBud | BUDs will never be hostile to player?
+|   -   |   -   |   -
 
 # Level Generation
 
@@ -26,24 +21,31 @@ TEST
 
 # Music Generation
 
+
+
 # User Interface Hierachies
 
 This details the progression/adjacency of UI and modal elements, how they connect:
 
+[Diagram](userinterface.drawio)
+![Diagram (PNG)](diagram.png)
+
 - Player HUD
   - Active ELEMENT
     - Crosshair ELEMENT
+  
 - Activity WINDOW
   - Rune MODAL
-    - 
+    - D
   - Journal MODAL
-    - Game State MODAL
+    - Log MODAL
       - Save MODAL
       - Load MODAL
+    - Map MODAL
     - Settings MODAL
-    - Quit MODAL
-      - Quit to Menu
-      - SuperQuit ACTION
+      - Quit MODAL
+        - Quit to Menu
+        - SuperQuit ACTION
 
 - Main Menu HUD
   - *(First time?)*
@@ -53,8 +55,6 @@ This details the progression/adjacency of UI and modal elements, how they connec
   - Quit MODAL
     - SuperQuit ACTION
 
-- Quit Modal
+- Quit MODAL
   - Quit to Menu
   - Superquit (Exits the game)
-- Superquit
->>>>>>> c2355a52a61415edf704db3beb6ebae9374db70c
